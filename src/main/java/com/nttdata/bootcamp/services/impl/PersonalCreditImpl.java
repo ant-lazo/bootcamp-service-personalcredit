@@ -36,4 +36,9 @@ public class PersonalCreditImpl implements IPersonalCreditService {
 		return pcrepo.delete(personalCredit);
 	}
 
+	@Override
+	public Mono<PersonalCredit> findByIdCustomerPerson(String idCustomerPerson) {
+		return pcrepo.findByIdCustomerPerson(idCustomerPerson);
+	}
+
 }

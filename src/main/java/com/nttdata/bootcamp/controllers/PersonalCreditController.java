@@ -57,5 +57,11 @@ public class PersonalCreditController {
 		log.info("a PersonalCredit was deleted");
 		return pcrepo.delete(personalCredit);
 	}
+	
+	@GetMapping("/findByIdCustomerPerson/{idCustomerPerson}")
+	public Mono<PersonalCredit> findByIdCutomerPerson(@PathVariable String idCustomerPerson){
+		log.info("a PersonalCredit was consulted by idCustomerPerson");
+		return pcrepo.findByIdCustomerPerson(idCustomerPerson);
+	}
 
 }
