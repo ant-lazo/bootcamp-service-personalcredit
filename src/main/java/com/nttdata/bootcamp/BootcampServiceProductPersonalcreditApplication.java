@@ -31,13 +31,15 @@ public class BootcampServiceProductPersonalcreditApplication implements CommandL
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		
 		mongoTemplate.dropCollection("personalcredits").subscribe();
 		
 		Flux.just(PersonalCredit.builder()
 				.idCustomerPerson("b1")
-				.accountingBalance("100")
-				.availableBalance("2")
+				.accountingBalance("700")
+				.availableBalance("100")
+				.debt("600")
+				.numMovement(0)
 				.build()).flatMap(bs->{
 						return pcrepo.save(bs);
 				}).subscribe(s-> log.info("Se ingreso personalCredit: "+s));
